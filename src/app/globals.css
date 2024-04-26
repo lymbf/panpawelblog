@@ -61,7 +61,7 @@
       font-family: loos-normal, sans-serif
     }
     h4{
-      color: var(--foreground);
+      @apply text-foreground;
       font-size: 28px;
       word-spacing: 2px;
       letter-spacing: 0.5px;

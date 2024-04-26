@@ -1,5 +1,6 @@
 import React from 'react';
 import MaxWidthWrapper from "@/components/UI/wrappers/MaxWidthWrapper";
+import Navigation from "@/components/Header/navigation";
 
 
 export default function Header() {
@@ -11,9 +12,7 @@ export default function Header() {
                     <h5>Blog Osobisty</h5>
                 </div>
                 <img src='images/me_glasses_3.png' className={'h-full w-auto'}/>
-                <div>
-                    menu
-                </div>
+                <Navigation/>
             </MaxWidthWrapper>
         </header>
     )
