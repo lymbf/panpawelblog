@@ -5,6 +5,7 @@ import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/footer";
 import MaxWidthWrapper from "@/components/UI/wrappers/MaxWidthWrapper";
 import {cn} from "@/lib/utils";
+import useInit from "@/application/init";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
+    useInit();
     return (
         <html lang="en">
             <body className={cn('font min-h-screen flex flex-col text-foreground')}>

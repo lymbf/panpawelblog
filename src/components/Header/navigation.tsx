@@ -12,7 +12,8 @@ export default function Navigation() {
     return (
         <ul className = 'flex flex-row font-medium text-foreground' >
             <Link href={'/'} className={'flex items-center mr-12 hover:opacity-70'}
-                  onClick={()=>{setDropActive(!dropActive)}}
+                  onMouseEnter={()=>{setDropActive(!dropActive)}}
+                  onMouseLeave={()=>{setDropActive(!dropActive)}}
             >
                 Artykuły
                 <ChevronDown size = {'18'} className={cn('transition-all', dropActive && '-rotate-180')}/>
