@@ -11,7 +11,7 @@ export default async function Categories({className}: { className?: string }) {
     const categories = await getCategories();
 
     return (
-        <div className={`flex flex-row py-3 border-b-gray-300 border-b-2 ${className}`}>
+        <div className={`flex flex-row py-3 border-b-accent border-b-2 ${className}`}>
             <div className='font-normal text-xl md:text-2xl w-auto flex items-center'>
                 Kategorie:
             </div>

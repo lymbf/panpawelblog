@@ -10,7 +10,7 @@ export default function Page() {
     getArticles().then(r=>console.log('articles ccontr res: ', r))
     return (
         <div className = 'flex flex-col'>
-            <MaxWidthWrapper className = 'p-0 md:px-0 flex flex-col md:flex-row md:justify-between'>
+            <MaxWidthWrapper className = 'p-0 md:px-0 flex flex-col md:flex-row md:justify-between md:items-center'>
                 <Categories className = 'max-w-3/4 '/>
                 <SearchBar className={''}/>
             </MaxWidthWrapper>
