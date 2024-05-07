@@ -1,5 +1,8 @@
 import React, {ReactNode} from 'react';
 import useCategoriesController from "@/application/controllers/categoriesController";
+import Link from "next/link";
+import {cn} from "@/lib/utils";
+import {buttonVariants} from "@/components/UI/button";
 
 
 export default async function Categories({className}:{className?:string}) {
@@ -14,9 +17,9 @@ export default async function Categories({className}:{className?:string}) {
             </div>
             <div className = 'flex flex-row flex-wrap items-center'>
                 {categories && categories.map((cat, i):ReactNode=>{
-                    return <div className = 'uppercase flex justify-center items-center leading-3 text-xs md:text-base mx-2 lg:mx-4 my-0'>
+                    return <Link href = '/articles/[slug]' as = {`/articles/${cat.id}`} className = {cn(buttonVariants({variant: 'ghost'}), 'uppercase flex justify-center items-center leading-3 text-xs md:text-base mx-2 lg:mx-4 my-0 font-normal hover:opacity-70')}>
                         {cat.name}
-                    </div>
+                    </Link>
                 })}
             </div>
         </div>
