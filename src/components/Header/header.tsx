@@ -2,6 +2,7 @@ import React from 'react';
 import MaxWidthWrapper from "@/components/UI/wrappers/MaxWidthWrapper";
 import Navigation from "@/components/Header/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default function Header() {
@@ -12,7 +13,7 @@ export default function Header() {
                     <h4 className={''}><span className={'text-primary'}>Pan </span> Paweł</h4>
                     <h5>Blog Osobisty</h5>
                 </Link>
-                <img src='images/me_glasses_3.png' className={'h-full w-auto'}/>
+                <Image alt = 'Myself in glasses' width = {385} height = {345} src='/images/me_glasses_3.png' className={'h-full w-auto'}/>
                 <Navigation/>
             </MaxWidthWrapper>
         </header>

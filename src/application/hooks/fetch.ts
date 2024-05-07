@@ -8,7 +8,7 @@ const getData = async function getData(url: string, cache?:number, method?: stri
                 next: { revalidate: cache || 3600}
             })
         res = await res.json();
-        console.log('res.data: ', res.data)
+        // console.log('res.data: ', res.data)
         if (res.data) return res.data
         else return []
     }catch(e){

@@ -8,7 +8,7 @@ export default function useCategoriesController(){
             let categories:Category[] = resp.map((el:RawCategory)=>{
                 return {id: el.id, name: el.attributes.name, article: el.attributes.article}
             })
-            console.log('categories: ', categories)
+            // console.log('categories: ', categories)
             return categories
         }catch(err){
             console.log('err: ', err)
