@@ -13,7 +13,7 @@ export default function Header() {
                     <h4 className={''}><span className={'text-primary'}>Pan </span> Paweł</h4>
                     <h5>Blog Osobisty</h5>
                 </Link>
-                <Image alt = 'Myself in glasses' width = {385} height = {345} src='/images/me_glasses_3.png' className={'h-full w-auto'}/>
+                <Image alt = 'Myself in glassessss' width = {385} height = {345} src='/images/me_glasses_3.png' className={'h-full w-auto'}/>
                 <Navigation/>
             </MaxWidthWrapper>
         </header>
