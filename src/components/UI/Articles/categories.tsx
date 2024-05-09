@@ -13,13 +13,13 @@ export default async function Categories({className}: { className?: string }) {
     return (
         <div className={`flex flex-col items-center sm:flex-row py-3 border-b-accent border-b-2 ${className}`}>
             <div className='font-normal text-xl md:text-2xl w-auto flex items-center px-0'>
-                Kategorie:
+                <h3>Kategorie:</h3>
             </div>
-            <div className='flex flex-row flex-wrap  items-center justify-center sm:justify-start w-full'>
+            <div className='flex flex-row flex-wrap flex-1 items-center justify-center sm:justify-between w-full'>
                 {categories && categories.map((cat, i): ReactNode => {
                     return <Link href='/articles/[slug]' as={`/articles/${cat.id}`}
                                  className={cn(buttonVariants({variant: 'ghost'}),
-                                     'px-2 sm:px-2 lg:px-2 xl:px-2 uppercase flex justify-center items-center leading-3 text-xs sm:text-base mx-0  xl:mx-4 my-0 font-normal')}>
+                                     ' uppercase flex justify-center items-center leading-3 text-xs sm:text-base mx-0  font-normal')}>
                         {cat.name}
                     </Link>
                 })}

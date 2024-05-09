@@ -9,6 +9,7 @@ type Article = {
     category: Category,
     tags?: Tag[],
     id: number,
+    views:number,
     newest?: boolean
 }
 
@@ -21,6 +22,7 @@ type RawArticle = {
         publishedAt: string,
         updatedAt: string,
         likes?: number,
+        views:number,
         blog_categories: {data: RawCategory },
         blog_tags?: {data: RawTag[] }
         image: {

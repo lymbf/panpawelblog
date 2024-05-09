@@ -16,13 +16,14 @@ export default function useArticlesController() {
                     id: el.id,
                     image_link: el.attributes.image.data.attributes.url,
                     title: el.attributes.title,
-                    createdAt: el.attributes.createdAt,
+                    createdAt: el.attributes.publishedAt,
                     likes: el.attributes.likes || null,
                     category: el.attributes.blog_categories,
                     tags: el.attributes.blog_tags ? el.attributes.blog_tags.data.map((t: RawTag) => {
                         return {id:t.id, ...t.attributes}
                     }) : [],
-                    newest: i === 0
+                    newest: i === 0,
+                    views: el.attributes.views
                 }
             })
         } catch (err) {
