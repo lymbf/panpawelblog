@@ -8,7 +8,7 @@ import MostRead from "@/components/UI/Articles/mostRead";
 
 export default async function Page() {
     const {getArticles} = useArticlesController();
-    const articles = await getArticles()
+    const articles = await getArticles(3, 2)
     return (
         <div className='flex flex-col'>
             <MaxWidthWrapper

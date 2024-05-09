@@ -7,7 +7,7 @@ import useArticlesController from "@/application/controllers/articlesController"
 
 export default function Page({params}:{params: { slug: string}}) {
     const {getArticles} = useArticlesController();
-    getArticles(parseInt(params.slug)).then(r=>console.log('articles ccontr res: ', r))
+    getArticles(20, parseInt( params.slug)).then(r=>console.log('articles ccontr res: ', r))
     return (
         <div className = 'Page'>
             <MaxWidthWrapper className = 'p-0 md:px-0 flex flex-col md:flex-row md:justify-between md:items-center'>
