@@ -10,9 +10,19 @@ export default function Page() {
     getArticles().then(r=>console.log('articles ccontr res: ', r))
     return (
         <div className = 'flex flex-col'>
-            <MaxWidthWrapper className = 'p-0 md:px-0 flex flex-col-reverse lg:flex-row lg:justify-between lg:items-center'>
+            <MaxWidthWrapper className = 'px-0 md:px-0 flex flex-col-reverse items-center lg:flex-row lg:justify-between lg:items-center'>
                 <Categories className = 'max-w-3/4 '/>
                 <SearchBar className={''}/>
+            </MaxWidthWrapper>
+            <MaxWidthWrapper className={'flex flex-row justify-between px-0 md:px-0 mt-12'} >
+                <div className = ''>
+                    asd
+                </div>
+                <div className = 'flex flex-col items-center'>
+                    <h3 className = ''>
+                        Najczęściej czytane:
+                    </h3>
+                </div>
             </MaxWidthWrapper>
 
         </div>
