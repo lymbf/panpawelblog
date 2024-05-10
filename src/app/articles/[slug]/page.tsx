@@ -5,6 +5,7 @@ import SearchBar from "@/components/UI/Other/searchBar";
 import useArticlesController from "@/application/controllers/articlesController";
 import TagStrip from "@/components/UI/Articles/tagStrip";
 import MostRead from "@/components/UI/Articles/mostRead";
+import ArticleLG from "@/components/UI/Articles/articleLG";
 
 
 export default async function Page({params}:{params: { slug: string}}) {
@@ -20,11 +21,7 @@ export default async function Page({params}:{params: { slug: string}}) {
                 <div className='bg-amber-300 max-w-screen-sm w-full mr-12'>
                     {articles && articles.map((a)=>{
 
-                        return <div>
-                            {a.title}
-                            {a.categories.map((c)=>{return <div className={'font-bold'}>{c.name}</div>})}
-                            <TagStrip categories={a.categories}  currentCatId={parseInt(params.slug)}/>
-                        </div>
+                        return <ArticleLG article={a} currentCatId={parseInt(params.slug)}/>
                     })}
                 </div>
                 <MostRead data={articles} className={''}/>

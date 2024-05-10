@@ -5,7 +5,7 @@ import {Category, Tag} from "@/application/interfaces/article";
 export default function TagStrip({categories, tags, currentCatId}: {
     categories: Category[],
     tags?: Tag[],
-    currentCatId?:number
+    currentCatId?:number|null
 }) {
     let category = currentCatId ? categories.filter((c) => {
             return currentCatId === c.id
