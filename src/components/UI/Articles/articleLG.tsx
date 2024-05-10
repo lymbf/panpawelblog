@@ -9,7 +9,7 @@ export default function ArticleLG({article, currentCatId}:{article:Article, curr
     console.log('url: ', article.image_link)
     return (
         <div className = 'ArticleLG'>
-            <TagStrip categories={article.categories} currentCatId={currentCatId || null}/>
+            <TagStrip categories={article.categories} currentCatId={currentCatId || null} tags = {article.tags}/>
             <Image src={`${process.env.BASE_URL}${article.image_link}`} alt={`${article.title}`} width={642} height={428}/>
             <h1>{article.title}</h1>
             <div className = ''>{article.createdAt}</div>
