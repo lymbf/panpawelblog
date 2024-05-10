@@ -13,7 +13,7 @@ export default function TagStrip({categories, tags, currentCatId}: {
         }) [0]
         : categories[0]
     return (
-        <div className='flex flex-row mb-4 items-center h-8'>
+        <div className='flex flex-row mb-3 items-center h-8'>
             <h2 className={' font-normal tracking-wider text-[22px] mr-2 flex flex-row  p-0 leading-7 items-center text-foreground uppercase'}>
                 {category.name}
             </h2>
