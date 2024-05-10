@@ -6,7 +6,7 @@ type Article = {
     title: string | null,
     createdAt: string,
     likes?: number | null,
-    category: Category,
+    categories: Category[],
     tags?: Tag[],
     id: number,
     views:number,
@@ -23,7 +23,7 @@ type RawArticle = {
         updatedAt: string,
         likes?: number,
         views:number,
-        blog_categories: {data: RawCategory },
+        blog_categories: {data: RawCategory[] },
         blog_tags?: {data: RawTag[] }
         image: {
             data: {

@@ -1,5 +1,5 @@
 import {getData} from "@/application/hooks/fetch";
-import {Article, RawArticle, RawTag} from "@/application/interfaces/article";
+import {Article, Category, RawArticle, RawCategory, RawTag} from "@/application/interfaces/article";
 
 
 export default function useArticlesController() {
@@ -12,19 +12,22 @@ export default function useArticlesController() {
         console.log('url: ', url)
         try {
             let resp = await getData(url, 20, );
-            return resp.map((el: RawArticle, i: number) => {
+            return resp.map((el: RawArticle, i: number):Article => {
                 return {
                     id: el.id,
                     image_link: el.attributes.image.data.attributes.url,
                     title: el.attributes.title,
                     createdAt: el.attributes.publishedAt,
                     likes: el.attributes.likes || null,
-                    category: el.attributes.blog_categories,
+                    categories: el.attributes.blog_categories.data.map((c)=>{
+                        return {...c.attributes,id: c.id}
+                    }),
                     tags: el.attributes.blog_tags ? el.attributes.blog_tags.data.map((t: RawTag) => {
                         return {id:t.id, ...t.attributes}
                     }) : [],
                     newest: i === 0,
-                    views: el.attributes.views
+                    views: el.attributes.views,
+                    body: el.attributes.body
                 }
             })
         } catch (err) {

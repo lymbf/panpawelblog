@@ -4,11 +4,14 @@ import MaxWidthWrapper from "@/components/UI/wrappers/MaxWidthWrapper";
 import SearchBar from "@/components/UI/Other/searchBar";
 import useArticlesController from "@/application/controllers/articlesController";
 import MostRead from "@/components/UI/Articles/mostRead";
+import TagStrip from "@/components/UI/Articles/tagStrip";
+import ArticleLG from "@/components/UI/Articles/articleLG";
 
 
 export default async function Page() {
     const {getArticles} = useArticlesController();
     const articles = await getArticles(3, 2)
+
     return (
         <div className='flex flex-col'>
             <MaxWidthWrapper
@@ -18,7 +21,9 @@ export default async function Page() {
             </MaxWidthWrapper>
             <MaxWidthWrapper className={'flex flex-row justify-between px-0 md:px-0 mt-12'}>
                 <div className='bg-amber-300 max-w-screen-sm w-full mr-12'>
-                    asd
+                    {articles && articles.map((a)=>{
+                        return <ArticleLG article={a}/>
+                    })}
                 </div>
                 <MostRead data={articles} className={''}/>
             </MaxWidthWrapper>
