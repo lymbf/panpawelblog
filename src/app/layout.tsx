@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/footer";
 import MaxWidthWrapper from "@/components/UI/wrappers/MaxWidthWrapper";
 import {cn} from "@/lib/utils";
 import useInit from "@/application/init";
+import {ThemeProvider} from "@/components/Theme/themeProvider";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -19,6 +20,10 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
     return (
         <html lang="en">
             <body className={cn('font min-h-screen flex flex-col text-foreground')}>
+            <ThemeProvider
+                attribute={'class'}
+                defaultTheme={'dark'}
+            >
                  <Header/>
                  <main className={'flex flex-row justify-center w-full'}>
                      <MaxWidthWrapper className={''}>
@@ -26,6 +31,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
                      </MaxWidthWrapper>
                  </main>
                 <Footer/>
+            </ThemeProvider>
              </body>
         </html>
     );

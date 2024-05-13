@@ -58,6 +58,10 @@
     * {
       @apply border-border;
     }
+  h1,h2,h3,h4,h5{
+    margin-block-end: 0;
+    margin-block-start: 0;
+  }
     body {
       @apply bg-background text-foreground;
       font-family: loos-normal, sans-serif
