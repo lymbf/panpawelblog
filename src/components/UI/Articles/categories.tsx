@@ -19,7 +19,7 @@ export default async function Categories({className}: { className?: string }) {
                 {categories && categories.map((cat, i): ReactNode => {
                     return <Link href='/articles/[slug]' as={`/articles/${cat.id}`}
                                  className={cn(buttonVariants({variant: 'ghost'}),
-                                     ' uppercase flex justify-center items-center leading-3 text-xs sm:text-base mx-0  font-normal')}>
+                                     'text-muted-foreground uppercase flex justify-center items-center leading-3 text-xs sm:text-base mx-0  font-normal')}>
                         {cat.name}
                     </Link>
                 })}
