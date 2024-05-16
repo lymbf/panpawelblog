@@ -10,7 +10,7 @@ import ArticleLG from "@/components/UI/Articles/articleLG";
 
 export default async function Page() {
     const {getArticles} = useArticlesController();
-    const articles = await getArticles(3, 2)
+    const articles = await getArticles({paginationPage:3, paginationSize: 2})
 
     return (
         <div className='flex flex-col'>

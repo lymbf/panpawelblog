@@ -8,23 +8,25 @@ import MostRead from "@/components/UI/Articles/mostRead";
 import ArticleLG from "@/components/UI/Articles/articleLG";
 
 
-export default async function Page({params}:{params: { slug: string}}) {
+export default async function Page({params}: { params: { slug: string } }) {
     const {getArticles} = useArticlesController();
-    const articles = await getArticles(20, 1,  parseInt( params.slug))
+    const articles = await getArticles({
+        paginationSize: 20, paginationPage: 1, categoryId: parseInt(params.slug)
+    })
     return (
-        <div className = 'Page'>
-            <MaxWidthWrapper className = 'p-0 md:px-0 flex flex-col md:flex-row md:justify-between md:items-center'>
-                <Categories className = 'max-w-3/4 '/>
+        <div className='Page'>
+            <MaxWidthWrapper
+                className='px-0 md:px-0 flex flex-col-reverse items-center lg:flex-row lg:justify-between lg:items-center'>
+                <Categories className='max-w-screen-sm w-full'/>
                 <SearchBar className={''}/>
             </MaxWidthWrapper>
             <MaxWidthWrapper className={'flex flex-row justify-between px-0 md:px-0 mt-12'}>
-                <div className='max-w-screen-sm w-full mr-12'>
-                    {articles && articles.map((a)=>{
-
-                        return <ArticleLG article={a} currentCatId={parseInt(params.slug)}/>
+                <div className=' max-w-screen-sm w-full mr-0 sm:mr-10 md:mr-16'>
+                    {articles && articles.map((a) => {
+                        return <ArticleLG article={a}/>
                     })}
                 </div>
-                <MostRead data={articles} className={''}/>
+                <MostRead data={articles} className={'max-w-[220px] lg:max-w-[420px]'}/>
             </MaxWidthWrapper>
         </div>
     )

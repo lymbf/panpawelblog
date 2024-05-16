@@ -3,9 +3,13 @@ import {Article, Category, RawArticle, RawCategory, RawTag} from "@/application/
 
 
 export default function useArticlesController() {
+    interface options{
+        paginationSize?: number,
+        paginationPage?:number,
+        categoryId?:number,
+    }
 
-
-    const getArticles = async function (paginationSize?:number|null, paginationPage?:number|null, categoryId?: number):Promise<Article[]|null> {
+    const getArticles = async function ({paginationSize, paginationPage, categoryId}:options):Promise<Article[]|null|Article> {
         let url = `blog-articles?populate=*&sort[0]=createdAt:desc`
         if(paginationPage && paginationSize) url += `&pagination[page]=${paginationPage}&pagination[pageSize]=${paginationSize}`
         if (categoryId) url += `&filters[blog_categories][id][$eq]=${categoryId}`;
@@ -36,5 +40,31 @@ export default function useArticlesController() {
         }
     }
 
-    return {getArticles}
+    const getArticle = async function(id:number){
+        let url = `blog-articles/${id}?populate=*`
+        try{
+            let resp:RawArticle = await getData(url, 20)
+            return {
+                id: resp.id,
+                image_link: resp.attributes.image.data.attributes.url,
+                title: resp.attributes.title,
+                createdAt: resp.attributes.publishedAt,
+                likes: resp.attributes.likes || null,
+                categories: resp.attributes.blog_categories.data.map((c)=>{
+                    return {...c.attributes,id: c.id}
+                }),
+                tags: resp.attributes.blog_tags ? resp.attributes.blog_tags.data.map((t: RawTag) => {
+                    return {id:t.id, ...t.attributes}
+                }) : [],
+                newest: false,
+                views: resp.attributes.views,
+                body: resp.attributes.body
+            }
+        }catch (err) {
+            console.log('err: ', err)
+            return null
+        }
+    }
+
+    return {getArticles, getArticle}
 }
