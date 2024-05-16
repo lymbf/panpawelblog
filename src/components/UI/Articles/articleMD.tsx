@@ -19,7 +19,7 @@ export default function ArticleMD({article}: { article: Article }) {
                             <div className='ml-2 mr-2  flex items-center justify-center'>|</div>}</div>
                 })}</div>
             </div>
-            <div className={'w-[198px] ml-5 flex flex-col justify-center pb-5'}>
+            <div className={'lg:w-[198px] ml-5 hidden lg:flex flex-col justify-center pb-5'}>
                 <div className={'text-sm uppercase text-muted-foreground mb-2'}>
                     {article.categories[0].name}
                 </div>

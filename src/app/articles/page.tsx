@@ -20,12 +20,12 @@ export default async function Page() {
                 <SearchBar className={''}/>
             </MaxWidthWrapper>
             <MaxWidthWrapper className={'flex flex-row justify-between px-0 md:px-0 mt-12'}>
-                <div className=' max-w-screen-sm w-full mr-12'>
+                <div className=' max-w-screen-sm w-full mr-16'>
                     {articles && articles.map((a)=>{
                         return <ArticleLG article={a}/>
                     })}
                 </div>
-                <MostRead data={articles} className={''}/>
+                <MostRead data={articles} className={'max-w-[220px] lg:max-w-[420px]'}/>
             </MaxWidthWrapper>
 
         </div>

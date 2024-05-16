@@ -11,7 +11,7 @@ export default async function MostRead({data, className}: { data: Article[] | nu
         return b.views - a.views
     }).slice(0, 3)
     return (
-        <div className={` flex flex-col  items-end max-w-[420px] w-full ${className}`}>
+        <div className={` flex flex-col  items-end w-full ${className}`}>
             <h3 className=''>
                 Najczęściej czytane:
             </h3>
