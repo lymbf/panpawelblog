@@ -11,8 +11,8 @@ export default async function MostRead({data, className}: { data: Article[] | nu
         return b.views - a.views
     }).slice(0, 3)
     return (
-        <div className={` flex flex-col  items-end w-full ${className}`}>
-            <h3 className=''>
+        <div className={`hidden sm:flex flex-col items-center lg:items-start w-full ${className}`}>
+            <h3 className='mb-8 text-[22px] lg:text-[28px]'>
                 Najczęściej czytane:
             </h3>
             {articles && articles.map((a) => {
