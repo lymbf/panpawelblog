@@ -6,6 +6,7 @@ import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import Link from "next/link";
 import {cn} from "@/lib/utils";
 import {buttonVariants} from "@/components/UI/button";
+import DateLine from "@/components/UI/Other/dateLine";
 
 
 export default function ArticleLG({article, currentCatId}: { article: Article, currentCatId?: number }) {
@@ -18,8 +19,7 @@ export default function ArticleLG({article, currentCatId}: { article: Article, c
             <Link href={'/article/[slug]'} as={`/article/${article.id}`}>
                 <h1 className='mb-1 text-foreground hover:opacity-70'>{article.title}</h1>
             </Link>
-            <div
-                className='text-slate-400 font-normal text-base tracking-wider mb-4'>{new Date(article.createdAt).toLocaleString()}</div>
+            <DateLine timestamp={article.createdAt}/>
             <div className={'max-h-12 overflow-hidden'}>{<BlocksRenderer content={article.body}/>}</div>
             <div className={'flex justify-end text-sm mt-3 font-bold'}>
                 <Link href='/article/[slug]' as={`/article/${article.id}`}

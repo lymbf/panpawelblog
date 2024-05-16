@@ -9,7 +9,7 @@ export default function useArticlesController() {
         categoryId?:number,
     }
 
-    const getArticles = async function ({paginationSize, paginationPage, categoryId}:options):Promise<Article[]|null|Article> {
+    const getArticles = async function ({paginationSize, paginationPage, categoryId}:options):Promise<Article[]|null> {
         let url = `blog-articles?populate=*&sort[0]=createdAt:desc`
         if(paginationPage && paginationSize) url += `&pagination[page]=${paginationPage}&pagination[pageSize]=${paginationSize}`
         if (categoryId) url += `&filters[blog_categories][id][$eq]=${categoryId}`;

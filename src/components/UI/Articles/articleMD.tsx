@@ -2,6 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import {Article} from "@/application/interfaces/article";
 import Link from "next/link";
+import DateLine from "@/components/UI/Other/dateLine";
 
 
 export default function ArticleMD({article}: { article: Article }) {
@@ -19,7 +20,7 @@ export default function ArticleMD({article}: { article: Article }) {
                             <div className='ml-2 mr-2  flex items-center justify-center'>|</div>}</div>
                 })}</div>
             </div>
-            <div className={'lg:w-[198px] ml-5 hidden lg:flex flex-col justify-center pb-5'}>
+            <div className={'lg:w-[198px] ml-5 hidden lg:flex flex-col justify-center pb-3'}>
                 <div className={'text-sm uppercase text-muted-foreground mb-2'}>
                     {article.categories[0].name}
                 </div>
@@ -28,9 +29,8 @@ export default function ArticleMD({article}: { article: Article }) {
                         {article.title}
                     </h2>
                 </Link>
-                <div className={'text-[10px] text-slate-500 tracking-wider font-normal'}>
-                    {new Date(article.createdAt).toLocaleString()}
-                </div>
+                <DateLine timestamp={article.createdAt} className={'text-[12px] text-slate-500 tracking-wider font-normal'}/>
+
             </div>
         </div>
     )
