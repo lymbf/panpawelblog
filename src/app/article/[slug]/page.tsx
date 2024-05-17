@@ -17,12 +17,12 @@ export default async function Page({params}: { params: { slug: string } }) {
         <div className='flex flex-row'>
             {article &&
                 <MaxWidthWrapper className={'flex flex-row justify-between px-0 md:px-0 mt-12'}>
-                    <div className={'max-w-screen-md w-full mr-0 sm:mr-10 md:mr-16'}>
+                    <div className={'max-w-[960px] w-full mr-0 sm:mr-10 md:mr-10'}>
                         <TagStrip categories={article.categories} tags={article.tags}/>
-                        <h1 className={'text-[38px] mb-2'}>{article.title}</h1>
+                        <h1 className={'text-[38px] mb-2 leading-[44px]'}>{article.title}</h1>
                         <DateLine timestamp={article.createdAt}/>
                         <Image src={`${process.env.BASE_URL}${article.image_link}`} alt={`${article.title}`}
-                               width={880} height={587} className={'rounded-3xl mb-6'}/>
+                               width={960} height={640} className={'rounded-3xl mb-6'}/>
                         <BlocksRenderer content={article.body}/>
                     </div>
                     <RecentArticles className={''}/>
