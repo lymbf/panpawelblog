@@ -13,9 +13,6 @@ export default async function Page({params}: { params: { slug: string } }) {
     const {getArticle} = useArticlesController();
     const article: Article | null = await getArticle(parseInt(params.slug))
 
-
-
-
     return (
         <div className='flex flex-row'>
             {article &&
@@ -34,9 +31,6 @@ export default async function Page({params}: { params: { slug: string } }) {
                             [&>blockquote]:border-l-accent-foreground`}
                         >
                             <BlocksRendererClient content={article.body}/>
-                            {/*<BlocksRenderer*/}
-                            {/*    content={article.body}*/}
-                            {/*/>*/}
                         </div>
                     </div>
                     <RecentArticles className={''}/>
