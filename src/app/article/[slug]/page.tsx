@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import useArticlesController from "@/application/controllers/articlesController";
-import Categories from "@/components/UI/Articles/categories";
 import TagStrip from "@/components/UI/Articles/tagStrip";
 import {Article} from "@/application/interfaces/article";
 import DateLine from "@/components/UI/Other/dateLine";
@@ -8,11 +7,15 @@ import {BlocksRenderer} from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 import RecentArticles from "@/components/UI/Articles/recentArticles";
 import MaxWidthWrapper from "@/components/UI/wrappers/MaxWidthWrapper";
-
+import BlocksRendererClient from "@/components/UI/Other/blocksRendererClient";
 
 export default async function Page({params}: { params: { slug: string } }) {
     const {getArticle} = useArticlesController();
     const article: Article | null = await getArticle(parseInt(params.slug))
+
+
+
+
     return (
         <div className='flex flex-row'>
             {article &&
@@ -23,7 +26,18 @@ export default async function Page({params}: { params: { slug: string } }) {
                         <DateLine timestamp={article.createdAt}/>
                         <Image src={`${process.env.BASE_URL}${article.image_link}`} alt={`${article.title}`}
                                width={960} height={640} className={'rounded-3xl mb-6'}/>
-                        <BlocksRenderer content={article.body}/>
+                        <div className={`[&>h1]:my-4 [&>h1]:text-2xl [&>p]:mb-4 
+                            [&>blockquote]:text-2xl
+                            [&>blockquote]:bg-slate-800
+                            [&>blockquote]:p-3
+                            [&>blockquote]:border-l-4
+                            [&>blockquote]:border-l-accent-foreground`}
+                        >
+                            <BlocksRendererClient content={article.body}/>
+                            {/*<BlocksRenderer*/}
+                            {/*    content={article.body}*/}
+                            {/*/>*/}
+                        </div>
                     </div>
                     <RecentArticles className={''}/>
                 </MaxWidthWrapper>

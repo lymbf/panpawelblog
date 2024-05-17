@@ -20,7 +20,7 @@ export default function ArticleLG({article, currentCatId}: { article: Article, c
                 <h1 className='mb-1 text-foreground hover:opacity-70'>{article.title}</h1>
             </Link>
             <DateLine timestamp={article.createdAt}/>
-            <div className={'max-h-12 overflow-hidden'}>{<BlocksRenderer content={article.body}/>}</div>
+            <div className={'max-h-12 overflow-hidden [&>h1]:text-base'}>{<BlocksRenderer content={article.body}/>}</div>
             <div className={'flex justify-end text-sm mt-3 font-bold'}>
                 <Link href='/article/[slug]' as={`/article/${article.id}`}
                       className={cn(buttonVariants({variant: 'ghost'}), 'font-bold tracking-wide')}>Czytaj

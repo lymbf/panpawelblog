@@ -8,7 +8,7 @@ export default async function RecentArticles({className}:{className:string}) {
     const {getArticles} = useArticlesController();
     const articles = await getArticles({});
     return (
-        <div className={`hidden sm:flex flex-col items-center sm:w-[220px] max-w-[220px] ${className}`}>
+        <div className={`hidden md:flex flex-col items-center sm:w-[220px] max-w-[220px] ${className}`}>
             <h3 className='mb-8 text-[18px] lg:text-[20px] xl:text-[24px] text-center'>
                 Najnowsze wpisy:
             </h3>
