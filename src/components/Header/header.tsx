@@ -3,6 +3,7 @@ import MaxWidthWrapper from "@/components/UI/wrappers/MaxWidthWrapper";
 import Navigation from "@/components/Header/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import MobileNav from "@/components/Header/mobileNav";
 
 
 export default function Header() {
@@ -14,7 +15,8 @@ export default function Header() {
                     <h5>Blog Osobisty</h5>
                 </Link>
                 <Image alt = 'Myself in glassessss' width = {385} height = {345} src='/images/me_glasses_3.png' className={'h-full w-auto'}/>
-                <Navigation/>
+                <Navigation className={'hidden sm:flex'}/>
+                <MobileNav className={'flex sm:hidden'}/>
             </MaxWidthWrapper>
         </header>
     )
