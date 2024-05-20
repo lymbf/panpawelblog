@@ -23,7 +23,7 @@ export default async function Page({params}: { params: { slug: string } }) {
             <MaxWidthWrapper className={'flex flex-row justify-between px-0 md:px-0 mt-12'}>
                 <div className=' max-w-screen-sm w-full mr-0 sm:mr-10 md:mr-16'>
                     {articles && articles.map((a) => {
-                        return <ArticleLG article={a}/>
+                        return <ArticleLG key = {a.title} article={a}/>
                     })}
                 </div>
                 <MostRead data={articles} className={'max-w-[220px] lg:max-w-[420px]'}/>

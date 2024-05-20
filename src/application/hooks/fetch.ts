@@ -5,7 +5,7 @@ const getData = async function getData(url: string, cache?:number, method?: stri
             {
                 method: method,
                 body: JSON.stringify(body),
-                next: { revalidate: cache || 3600}
+                next: { revalidate: cache || 0}
             })
         res = await res.json();
         // console.log('res.data: ', res.data)

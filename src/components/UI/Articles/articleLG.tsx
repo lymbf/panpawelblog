@@ -10,7 +10,6 @@ import DateLine from "@/components/UI/Other/dateLine";
 
 
 export default function ArticleLG({article, currentCatId}: { article: Article, currentCatId?: number }) {
-    console.log('url: ', article.image_link)
     return (
         <div className='ArticleLG pb-10 border-b-2 border-b-accent mb-10'>
             <TagStrip categories={article.categories} currentCatId={currentCatId || null} tags={article.tags}/>
