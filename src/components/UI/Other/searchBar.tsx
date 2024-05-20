@@ -11,6 +11,7 @@ export default function SearchBar({className}:{className:string}) {
     return (
         <div className = {`relative py-3  flex items-center justify-center w-72 ${className} `}>
             <Input
+                disabled={true}
                 onBlur={()=>{setIsActive(false)}}
                 onFocus={()=>{setIsActive(true); }}
                 type ={'search'}

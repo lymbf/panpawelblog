@@ -19,7 +19,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
     useInit();
     return (
         <html lang="en">
-            <body className={cn('font min-h-screen flex flex-col text-foreground')}>
+            <body className={cn('font min-h-screen flex flex-col text-foreground relative')}>
             <ThemeProvider
                 attribute={'class'}
                 defaultTheme={'dark'}

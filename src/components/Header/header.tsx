@@ -8,7 +8,7 @@ import MobileNav from "@/components/Header/mobileNav";
 
 export default function Header() {
     return (
-        <header className='h-28 w-full flex flex-row justify-center border-b-2 border-b-muted-foreground shadow-lg mb-12'>
+        <header className='sticky top-0 bg-background z-50 h-28 w-full flex flex-row justify-center border-b-2 border-b-muted-foreground shadow-lg mb-12'>
             <MaxWidthWrapper className='flex flex-row justify-between items-center'>
                 <Link href = {'/'} className={'hover:opacity-70'}>
                     <h4 className={''}><span className={'text-primary'}>Pan </span> Paweł</h4>
