@@ -5,7 +5,7 @@ import {cn} from "@/lib/utils";
 import {buttonVariants} from "@/components/UI/button";
 
 
-export default async function Categories({className}: { className?: string }) {
+export default async function Categories({className, current}: { className?: string, current?:number }) {
 
     const {getCategories} = useCategoriesController()
     const categories = await getCategories();
@@ -19,7 +19,9 @@ export default async function Categories({className}: { className?: string }) {
                 {categories && categories.map((cat, i): ReactNode => {
                     return <Link href='/articles/[slug]' as={`/articles/${cat.id}`}
                                  className={cn(buttonVariants({variant: 'ghost'}),
-                                     'text-muted-foreground uppercase flex justify-center items-center leading-3 text-xs sm:text-base mx-0  font-normal')}>
+                                     'text-muted-foreground uppercase flex justify-center items-center leading-3 text-xs sm:text-base mx-0  font-normal',
+                                     cat.id===current && 'text-foreground'
+                                 )}>
                         {cat.name}
                     </Link>
                 })}

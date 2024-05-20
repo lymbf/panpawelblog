@@ -17,7 +17,7 @@ export default async function Page({params}: { params: { slug: string } }) {
         <div className='Page'>
             <MaxWidthWrapper
                 className='px-0 md:px-0 flex flex-col-reverse items-center lg:flex-row lg:justify-between lg:items-center'>
-                <Categories className='max-w-screen-sm w-full'/>
+                <Categories className='max-w-screen-sm w-full' current = {parseInt(params.slug)}/>
                 <SearchBar className={''}/>
             </MaxWidthWrapper>
             <MaxWidthWrapper className={'flex flex-row justify-between px-0 md:px-0 mt-12'}>
