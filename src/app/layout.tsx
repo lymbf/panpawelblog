@@ -22,7 +22,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
             <body className={cn('font min-h-screen flex flex-col text-foreground relative')}>
             <ThemeProvider
                 attribute={'class'}
-                defaultTheme={'dark'}
+                defaultTheme={'system'}
             >
                  <Header/>
                  <main className={'flex flex-row justify-center w-full'}>
